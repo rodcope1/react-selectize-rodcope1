@@ -1,7 +1,7 @@
 {
-  "name": "react-selectize",
+  "name": "react-selectize-rodcope1",
   "version": "3.0.2",
-  "description": "A Stateless & Flexible Select component for React inspired by Selectize",
+  "description": "react-selectize fork to fix MS Edge issue",
   "main": "src/index.js",
   "scripts": {
     "start": "gulp",

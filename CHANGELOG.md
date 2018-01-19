@@ -1,5 +1,8 @@
 # React Selectize
 
+## 3.0.2 / 19th January 2018
+* fix order of operations issue that leads to bad generated code for IE 11/Edge, currently breaking Edge
+
 ## 3.0.1 / 29th July 2017
 * fix peer dependencies react-transition-group@1.1.2 instead of the latest version
 

@@ -98,7 +98,7 @@ gulp.task \watch:src:scripts, ->
 
 # create-standalone-build :: Boolean -> {file :: String, directory :: String} -> Stream
 create-standalone-build = (minify, {file, directory}) ->
-    browserify standalone: \react-selectize, debug: false
+    browserify standalone: \react-selectize-rodcope1, debug: false
         .add <[./src/index.js]>
         .exclude \prelude-ls
         .exclude \prelude-extension

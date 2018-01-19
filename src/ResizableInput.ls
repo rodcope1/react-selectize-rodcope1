@@ -41,7 +41,7 @@ module.exports = class ResizableInput extends React.PureComponent
                     if !!input-element.current-style 
                         input-element.current-style 
                     else 
-                        document.default-view ? window .get-computed-style input-element
+                        (document.default-view ? window).get-computed-style input-element
                 )
                     |> obj-to-pairs
                     |> each ([key, value]) -> dummpy-input.style[key] = value

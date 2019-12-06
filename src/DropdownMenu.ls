@@ -5,7 +5,9 @@
 {create-factory}:React = require \react
 {div, input, span} = require \react-dom-factories
 {find-DOM-node} = require \react-dom
-ReactCSSTransitionGroup = create-factory require \react-transition-group/CSSTransitionGroup
+{TransitionGroup, CSSTransition} = require \react-transition-group
+TransitionGroup = create-factory TransitionGroup
+CSSTransition = create-factory CSSTransition
 ReactTether = create-factory require \./ReactTether
 DivWrapper = create-factory require \./DivWrapper
 OptionWrapper = create-factory require \./OptionWrapper
@@ -84,15 +86,17 @@ module.exports = class DropdownMenu extends React.PureComponent
     # render-animated-dropdown :: ComputedState -> ReactElement
     render-animated-dropdown: ({dynamic-class-name}:computed-state) ->
         if !!@props.transition-enter or !!@props.transition-leave
-            ReactCSSTransitionGroup do 
-                ref: \dropdownMenuWrapper
+            TransitionGroup do 
+              key: 'dropdown-transition'
+              ref: \dropdownMenuWrapper
+              CSSTransition do
                 component: \div
-                transition-name: \custom 
-                transition-enter: @props.transition-enter
-                transition-leave: @props.transition-leave
-                transition-enter-timeout: @props.transition-enter-timeout
-                transition-leave-timeout: @props.transition-leave-timeout
-                class-name: "dropdown-menu-wrapper #{dynamic-class-name}"
+                class-names: "custom dropdown-menu-wrapper #{dynamic-class-name}"
+                enter: @props.transition-enter
+                exit:  @props.transition-leave
+                timeout:
+                  enter: @props.transition-enter-timeout
+                  exit: @props.transition-leave-timeout
                 @render-dropdown computed-state
 
         else

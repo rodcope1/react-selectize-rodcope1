@@ -134,7 +134,9 @@ module.exports = class DropdownMenu extends React.PureComponent
                         on-click: !~> 
                             if !@props.scroll-lock
                                 <~ @props.on-highlighted-uid-change uid
-                            @props.on-option-click @props.highlighted-uid
+                                # ROD: changed this function to put the on-option-click call in the callback because it wasn't 
+                                #      getting the latest value, but only on mobile devices for some reason.
+                                @props.on-option-click @props.highlighted-uid
                         on-mouse-over: ({current-target}) !~>  
                             if 'ontouchstart' of window => return false
                             if !@props.scroll-lock

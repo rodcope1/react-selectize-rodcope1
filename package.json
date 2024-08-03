@@ -1,6 +1,6 @@
 {
   "name": "react-selectize-rodcope1",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "react-selectize fork to fix MS Edge issue",
   "main": "src/index.js",
   "scripts": {
